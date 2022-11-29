@@ -37,14 +37,20 @@ const taskBMessage = () => {
 
 console.log(taskBMessage());
 
+const output = document.querySelector('#output')
+const button = document.querySelector('#outputbutton')
+
 
 const returnOutput = () => {
-        document.getElementById("output").innerHTML = taskBMessage();
+        output.innerHTML = taskBMessage();
+        output.style.border = '5px solid';
+        button.removeEventListener("click", returnOutput); // makes, that the button can only be clicked once 
 } // ==> function expression MUST be set before it's called, otherwise DOM Manipulation will not work
 
-document.getElementById("outputbutton").addEventListener("click", returnOutput)
+button.addEventListener("click", returnOutput)
 
 // function returnOutput () {
 //     document.getElementById("output").innerHTML = taskBMessage();
 //  } ==> Function Declaration: function is available everywhere -> doesn't matter where to put the function
 
+// border around
